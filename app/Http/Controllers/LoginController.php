@@ -54,7 +54,15 @@ class LoginController extends Controller
     /**
      * Mostrar el dashboard.
      */
-    public function dashboard() {}
+    public function dashboard()
+    {
+        // Verificar si el usuario inició sesión
+        if (!Session::has('token')) {
+            return redirect()->route('login');
+        }
+
+        return view('dashboard.index');
+    }
 
     /**
      * Cerrar sesión.

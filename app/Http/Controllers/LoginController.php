@@ -16,6 +16,43 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    
+    public function register(Request $request)
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+
+        // Consumir la API
+        $response = Http::post(env('API_URL') . '/register', [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        // Si ocurre un error
+        if ($response->failed()) {
+            return back()
+                ->withErrors([
+                    'error' => $response->json()['message'] ?? 'No fue posible registrar el usuario.'
+                ])
+                ->withInput();
+        }
+
+        // Obtener la respuesta de la API
+        $data = $response->json();
+
+        // Guardar el token y el usuario en la sesión
+        Session::put('token', $data['token']);
+        Session::put('user', $data['user']);
+
+        // Redirigir al dashboard
+        return redirect()->route('dashboard');
+    }
+
     /**
      * Procesar el inicio de sesión.
      */

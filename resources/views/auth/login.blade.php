@@ -53,7 +53,7 @@
 
             <br>
 
-            <a href="#">
+            <a href="{{ route('register') }}">
                 Registrarse
             </a>
 

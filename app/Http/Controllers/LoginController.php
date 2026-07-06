@@ -16,7 +16,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    
+
     public function register(Request $request)
     {
         // Validar los datos del formulario
@@ -104,5 +104,11 @@ class LoginController extends Controller
     /**
      * Cerrar sesión.
      */
-    public function logout() {}
+    public function logout()
+    {
+        Session::forget('token');
+        Session::forget('user');
+
+        return redirect()->route('login');
+    }
 }

@@ -9,7 +9,11 @@
 </head>
 <body class="bg-light">
 
-    <main>
+    @if(session()->has('token'))
+        @include('partials.navbar')
+    @endif
+
+    <main class="container mt-4">
         @yield('content')
     </main>
 

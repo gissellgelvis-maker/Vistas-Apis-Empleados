@@ -14,12 +14,19 @@ Route::get('/register', function () {   return view('auth.register'); })->name('
 
 Route::post('/register', [LoginController::class, 'register'])->name('register.store');
 
+//inicio
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+
+// empleados
 Route::get('/empleados', [EmpleadoController::class, 'index']) ->name('empleados.index');
 
 Route::get('/empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');
 
 Route::post('/empleados', [EmpleadoController::class, 'store']) ->name('empleados.store');
 
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit']) ->name('empleados.edit');
 
+Route::put('/empleados/{id}', [EmpleadoController::class, 'update']) ->name('empleados.update');
+
+// cierre sesion
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

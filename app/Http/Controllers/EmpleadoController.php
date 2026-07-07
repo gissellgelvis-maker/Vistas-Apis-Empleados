@@ -72,4 +72,58 @@ class EmpleadoController extends Controller
             ->with('error', 'Ocurrió un error inesperado.')
             ->withInput();
     }
+
+    public function edit($id)
+    {
+        // Obtener el empleado
+        $empleadoResponse = Http::withToken(Session::get('token'))
+            ->get(env('API_URL') . '/empleados/' . $id);
+
+        // Obtener los cargos
+        $cargosResponse = Http::withToken(Session::get('token'))
+            ->get(env('API_URL') . '/cargos');
+
+        if ($empleadoResponse->failed() || $cargosResponse->failed()) {
+
+            return redirect()
+                ->route('empleados.index')
+                ->with('error', 'No fue posible cargar la información del empleado.');
+        }
+
+        $empleado = $empleadoResponse->json();
+        $cargos = $cargosResponse->json();
+
+        return view('empleados.edit', compact('empleado', 'cargos'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $response = Http::withToken(Session::get('token'))
+            ->put(env('API_URL') . '/empleados/' . $id, [
+                'nombres' => $request->nombres,
+                'apellidos' => $request->apellidos,
+                'fecha_nacimiento' => $request->fecha_nacimiento,
+                'fecha_ingreso' => $request->fecha_ingreso,
+                'salario' => $request->salario,
+                'id_cargo' => $request->id_cargo,
+                'estado' => $request->estado,
+            ]);
+
+        if ($response->successful()) {
+            return redirect()
+                ->route('empleados.index')
+                ->with('success', 'Empleado actualizado correctamente.');
+        }
+
+        if ($response->status() == 422) {
+
+            return back()
+                ->withErrors($response->json()['errors'])
+                ->withInput();
+        }
+
+        return back()
+            ->with('error', 'No fue posible actualizar el empleado.')
+            ->withInput();
+    }
 }

@@ -32,6 +32,7 @@
                     <th>Apellidos</th>
                     <th>Cargo</th>
                     <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
 
             </thead>
@@ -51,6 +52,13 @@
                     <td>{{ $empleado['cargo']['nombre_cargo'] }}</td>
 
                     <td>{{ ucfirst($empleado['estado']) }}</td>
+
+                    <td>
+                        <a href="{{ route('empleados.edit', $empleado['id_empleado']) }}"
+                            class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+                    </td>
 
                 </tr>
 

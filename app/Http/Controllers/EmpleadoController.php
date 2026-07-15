@@ -126,4 +126,22 @@ class EmpleadoController extends Controller
             ->with('error', 'No fue posible actualizar el empleado.')
             ->withInput();
     }
+
+    /*Eliminar un empleado */
+    public function destroy($id)
+    {
+        $response = Http::withToken(Session::get('token'))
+            ->delete(env('API_URL') . '/empleados/' . $id);
+
+        if ($response->successful()) {
+
+            return redirect()
+                ->route('empleados.index')
+                ->with('success', 'Empleado eliminado correctamente.');
+        }
+
+        return redirect()
+            ->route('empleados.index')
+            ->with('error', 'No fue posible eliminar el empleado.');
+    }
 }

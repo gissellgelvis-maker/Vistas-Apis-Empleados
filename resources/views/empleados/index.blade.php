@@ -4,27 +4,21 @@
 
 @section('content')
 
-<div class="card shadow">
+<div class="Cuadro_de_fondo_dela_tabla">
 
-    <div class="card-header bg-primary text-white">
-        <h4 class="mb-0">Listado de Empleados</h4>
+    <div class="encabezado_de_empleados_registrados">
+        <h4 class="Texto-Listado_empleado">Listado de Empleados Registrados</h4>
     </div>
 
-    <div class="card-body">
+    <div class="Tabla_empleados">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
-
-            <h5 class="mb-0">Empleados registrados</h5>
-
-            <a href="{{ route('empleados.create') }}" class="btn btn-primary">
-                Nuevo empleado +
-            </a>
 
         </div>
 
         <table class="table table-bordered table-hover">
 
-            <thead class="table-dark">
+            <thead class="encabezado-tabla-empleados">
 
                 <tr>
                     <th>ID</th>
@@ -51,13 +45,36 @@
 
                     <td>{{ $empleado['cargo']['nombre_cargo'] }}</td>
 
-                    <td>{{ ucfirst($empleado['estado']) }}</td>
+                    <!-- <td>{{ ucfirst($empleado['estado']) }}</td> -->
 
-                    <td>
+
+                    @if ($empleado['estado'] =="inactivo")
+                    <td class="estado-inactivo">Inactivo</td>
+                    @else
+                    <td class="estado-activo">Activo</td>
+                    @endif
+
+
+                    <td class="acciones">
                         <a href="{{ route('empleados.edit', $empleado['id_empleado']) }}"
-                            class="btn btn-warning btn-sm">
+                            class="btn-editar-empleado">
                             Editar
                         </a>
+
+                        <form action="{{ route('empleados.destroy', $empleado['id_empleado']) }}"
+                            method="POST"
+                            class="caja-de-btn-editar-eliminar"
+                            onsubmit="return confirm('¿Confirma eliminar el empleado?');">
+
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn-eliminar-empleado">
+                               <p> Eliminar</p>
+                            </button>
+
+                        </form>
+
                     </td>
 
                 </tr>
@@ -69,6 +86,13 @@
         </table>
 
     </div>
+
+    <div class="contenedor-btn-agregar">
+        <a href="{{ route('empleados.create') }}" class="btn-agregar-empleado">
+            Nuevo empleado +
+        </a>
+    </div>
+
 
 </div>
 

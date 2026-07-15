@@ -6,7 +6,7 @@
 
 <div class="card shadow">
 
-    <div class="card-header bg-primary text-white">
+    <div class ="encabezado-de-editar" class="card-header bg-primary text-white">
         <h4 class="mb-0">Editar Empleado</h4>
     </div>
 

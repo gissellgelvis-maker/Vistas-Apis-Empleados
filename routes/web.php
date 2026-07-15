@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\CargoController;
 
 //login
 Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -17,7 +18,7 @@ Route::post('/register', [LoginController::class, 'register'])->name('register.s
 //inicio
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 
-// empleados
+// empleados CRUD
 Route::get('/empleados', [EmpleadoController::class, 'index']) ->name('empleados.index');
 
 Route::get('/empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');
@@ -27,6 +28,23 @@ Route::post('/empleados', [EmpleadoController::class, 'store']) ->name('empleado
 Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit']) ->name('empleados.edit');
 
 Route::put('/empleados/{id}', [EmpleadoController::class, 'update']) ->name('empleados.update');
+
+Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy']) ->name('empleados.destroy');
+
+// Cargos CRUD
+Route::get('/cargos', [CargoController::class, 'index']) ->name('cargos.index');
+
+Route::get('/cargos/create', [CargoController::class, 'create'])->name('cargos.create');
+
+Route::post('/cargos', [CargoController::class, 'store'])->name('cargos.store');
+
+Route::get('/cargos/{id}/edit', [CargoController::class, 'edit']) ->name('cargos.edit');
+
+Route::put('/cargos/{id}', [CargoController::class, 'update']) ->name('cargos.update');
+
+Route::delete('/cargos/{id}', [CargoController::class, 'destroy']) ->name('cargos.destroy');
+
+
 
 // cierre sesion
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -7,3 +7,188 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/*--------------------------Tabla de lista de Empleados---------------------------------------------*/
+
+/*-------------Tabla de la lista de empleados---------------------------------*/
+
+.encabezado_de_empleados_registrados{
+    background-color: rgb(37, 170, 28);
+    height: 80px;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Cuadro_de_fondo_dela_tabla{
+  width: 1300px;
+  min-height: 1200px;
+  padding-bottom: 40px;
+}
+
+.Tabla_empleados{
+  min-height: 700px;
+  width: 1300px;
+}
+
+.contenedor-btn-agregar{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+
+/*-----------------boton de agregar un nuevo empleado------------------------*/
+
+.btn-agregar-empleado {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2b8818;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(13, 169, 55, 0.233);
+  transition: all 0.2s ease;
+  margin-top: 20px;
+}
+
+
+.btn-agregar-empleado:hover {
+  background: #3bc020;
+}
+
+.btn-nuevo-empleado:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(58, 237, 97, 0.3);
+}
+
+/*tabla de empleados*/
+
+.encabezado-tabla-empleados th {
+  background-color: #2c9733;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 16px;
+  text-align: left;
+
+}
+
+/*--------------------Boton de editar un empleado---------------------*/
+
+.btn-editar-empleado {
+  
+  background: #246817;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 6px 14px;
+  transition: all 0.2s ease;
+  
+}
+
+.btn-editar-empleado:hover {
+  background: #107417;
+}
+.btn-editar-empleado {
+  text-decoration: none;
+}
+
+/*-------------------------------------Boton de eliminar un empleado-----------------------------*/
+
+.acciones .btn-eliminar-empleado{
+  background-color: rgb(138, 2, 2);
+  align-items: center;
+}
+
+.acciones .btn-eliminar-empleado p{
+  position: relative;
+  top: 5px;
+}
+
+.btn-eliminar-empleado{
+  background: #ff2e477f;
+  color: aliceblue;
+  height: 35px;
+  border-radius: 5px;
+  
+}
+.btn-eliminar-empleado:hover{
+  background: #d33f50;
+
+}
+
+/* Cuadro del btn de eliminnar*/
+.caja-de-btn-editar-eliminar{
+  margin-top: 10px;
+}
+
+.acciones{
+  width: 130px;
+}
+
+
+.acciones *{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  text-align: center;
+}
+
+
+
+/*-----------estado-Colores-activo-inactivo----------*/
+
+td.estado-activo{
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  
+}
+
+td.estado-inactivo{
+  width: 200px;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+
+  
+}
+
+
+
+
+/*-------------------------------------------Formulario de editar un empleado-------------------------------------------------------*/
+
+/*formilario de editar un empleado*/
+
+.form-label{
+    color: rgb(162, 119, 231);
+}
+.card {
+    background-color: rgb(255, 255, 255);
+    width: 1000px;
+    border-radius: 30px 30px 0 0;
+    
+}
+.Texto-Listado_empleado{
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+}
+
+.encabezado-de-editar{
+    background-color: rgb(216, 174, 255);
+    width: 1000px;
+    height: 50px;
+    border-radius: 30px 30px 0 0;
+    
+}

@@ -70,7 +70,7 @@
                             @method('DELETE')
 
                             <button type="submit" class="btn-eliminar-empleado">
-                               <p> Eliminar</p>
+                                <p> Eliminar</p>
                             </button>
 
                         </form>
@@ -86,7 +86,47 @@
         </table>
 
     </div>
+    <div class="d-flex justify-content-center mt-4">
 
+        <nav>
+
+            <ul class="pagination">
+
+                {{-- Anterior --}}
+                <li class="page-item {{ $empleados['current_page'] == 1 ? 'disabled' : '' }}">
+                    <a class="page-link"
+                        href="{{ route('empleados.index', ['page' => $empleados['current_page'] - 1]) }}">
+                        Anterior
+                    </a>
+                </li>
+
+                {{-- Números de página --}}
+                @for($i = 1; $i <= $empleados['last_page']; $i++)
+
+                    <li class="page-item {{ $i == $empleados['current_page'] ? 'active' : '' }}">
+
+                    <a class="page-link"
+                        href="{{ route('empleados.index', ['page' => $i]) }}">
+                        {{ $i }}
+                    </a>
+
+                    </li>
+
+                    @endfor
+
+                    {{-- Siguiente --}}
+                    <li class="page-item {{ $empleados['current_page'] == $empleados['last_page'] ? 'disabled' : '' }}">
+                        <a class="page-link"
+                            href="{{ route('empleados.index', ['page' => $empleados['current_page'] + 1]) }}">
+                            Siguiente
+                        </a>
+                    </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
     <div class="contenedor-btn-agregar">
         <a href="{{ route('empleados.create') }}" class="btn-agregar-empleado">
             Nuevo empleado +

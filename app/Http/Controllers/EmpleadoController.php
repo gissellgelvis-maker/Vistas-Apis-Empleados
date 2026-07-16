@@ -8,22 +8,21 @@ use Illuminate\Support\Facades\Session;
 
 class EmpleadoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Consumir la API
         $response = Http::withToken(Session::get('token'))
-            ->get(env('API_URL') . '/empleados');
+            ->get(env('API_URL') . '/empleados', [
+                'page' => $request->page
+            ]);
 
-        // Si la API responde con un error
         if ($response->failed()) {
-            return redirect()->route('dashboard')
+            return redirect()
+                ->route('dashboard')
                 ->with('error', 'No fue posible obtener los empleados.');
         }
 
-        // Convertir la respuesta JSON en un arreglo
         $empleados = $response->json();
 
-        // Enviar los datos a la vista
         return view('empleados.index', compact('empleados'));
     }
 

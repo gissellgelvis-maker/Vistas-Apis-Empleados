@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\FuncionCargoController;
 
 //login
 Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -43,6 +44,19 @@ Route::get('/cargos/{id}/edit', [CargoController::class, 'edit']) ->name('cargos
 Route::put('/cargos/{id}', [CargoController::class, 'update']) ->name('cargos.update');
 
 Route::delete('/cargos/{id}', [CargoController::class, 'destroy']) ->name('cargos.destroy');
+
+// funciones-cargos
+Route::get('/funciones', [FuncionCargoController::class, 'index']) ->name('funciones.index');
+
+Route::get('/funciones/create', [FuncionCargoController::class, 'create']) ->name('funciones.create');
+
+Route::post('/funciones', [FuncionCargoController::class, 'store']) ->name('funciones.store');
+
+Route::get('/funciones/{id}/edit', [FuncionCargoController::class, 'edit']) ->name('funciones.edit');
+
+Route::put('/funciones/{id}', [FuncionCargoController::class, 'update']) ->name('funciones.update');
+
+Route::delete('/funciones/{id}', [FuncionCargoController::class, 'destroy']) ->name('funciones.destroy');
 
 
 

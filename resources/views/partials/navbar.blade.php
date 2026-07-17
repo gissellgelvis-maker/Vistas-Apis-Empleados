@@ -33,7 +33,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('funciones.index') }}">
                         Funciones
                     </a>
                 </li>

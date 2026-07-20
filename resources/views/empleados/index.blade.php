@@ -24,6 +24,9 @@
                     <th>ID</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Salario</th>
                     <th>Cargo</th>
                     <th>Estado</th>
                     <th>Acciones</th>
@@ -43,9 +46,15 @@
 
                     <td>{{ $empleado['apellidos'] }}</td>
 
+                    <td>{{ $empleado['fecha_nacimiento'] }}</td>
+
+                    <td>{{ $empleado['fecha_ingreso'] }}</td>
+
+                    <td>{{ $empleado['salario'] }}</td>
+
                     <td>{{ $empleado['cargo']['nombre_cargo'] }}</td>
 
-                    <!-- <td>{{ ucfirst($empleado['estado']) }}</td> -->
+
 
 
                     @if ($empleado['estado'] =="inactivo")
@@ -85,55 +94,35 @@
 
         </table>
 
-    </div>
-    <div class="d-flex justify-content-center mt-4">
+        <div class="paginacion-empleado">
 
-        <nav>
+            @if($empleados['prev_page_url'])
+            <a href="{{ route('empleados.index', ['page' => $empleados['current_page'] - 1]) }}"
+                class="btn-paginacion-empleado btn-anterior-empleado">
+                Anterior
+            </a>
+            @endif
 
-            <ul class="pagination">
+            <span class="texto-paginacion-empleado">
+                Página {{ $empleados['current_page'] }}
+                de {{ $empleados['last_page'] }}
+            </span>
 
-                {{-- Anterior --}}
-                <li class="page-item {{ $empleados['current_page'] == 1 ? 'disabled' : '' }}">
-                    <a class="page-link"
-                        href="{{ route('empleados.index', ['page' => $empleados['current_page'] - 1]) }}">
-                        Anterior
-                    </a>
-                </li>
+            @if($empleados['next_page_url'])
+            <a href="{{ route('empleados.index', ['page' => $empleados['current_page'] + 1]) }}"
+                class="btn-paginacion-empleado btn-siguiente-empleado">
+                Siguiente
+            </a>
+            @endif
 
-                {{-- Números de página --}}
-                @for($i = 1; $i <= $empleados['last_page']; $i++)
+        </div>
+        <div class="contenedor-btn-agregar">
+            <a href="{{ route('empleados.create') }}" class="btn-agregar-empleado">
+                Nuevo empleado +
+            </a>
+        </div>
 
-                    <li class="page-item {{ $i == $empleados['current_page'] ? 'active' : '' }}">
-
-                    <a class="page-link"
-                        href="{{ route('empleados.index', ['page' => $i]) }}">
-                        {{ $i }}
-                    </a>
-
-                    </li>
-
-                    @endfor
-
-                    {{-- Siguiente --}}
-                    <li class="page-item {{ $empleados['current_page'] == $empleados['last_page'] ? 'disabled' : '' }}">
-                        <a class="page-link"
-                            href="{{ route('empleados.index', ['page' => $empleados['current_page'] + 1]) }}">
-                            Siguiente
-                        </a>
-                    </li>
-
-            </ul>
-
-        </nav>
 
     </div>
-    <div class="contenedor-btn-agregar">
-        <a href="{{ route('empleados.create') }}" class="btn-agregar-empleado">
-            Nuevo empleado +
-        </a>
-    </div>
 
-
-</div>
-
-@endsection
+    @endsection

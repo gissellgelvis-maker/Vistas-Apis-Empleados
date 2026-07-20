@@ -20,9 +20,9 @@
 
                 <tr>
                     <th>ID</th>
-                    <th>Descripción</th>
-                    <th>Estado</th>
+                    <th>Descripción de la Funcion</th>
                     <th>Cargo</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
 
@@ -38,9 +38,15 @@
 
                     <td>{{ $funcion['descripcion_funcion'] }}</td>
 
-                    <td>{{ ucfirst($funcion['estado']) }}</td>
-
                     <td>{{ $funcion['cargo']['nombre_cargo'] }}</td>
+
+                    @if ($funcion['estado'] =="inactivo")
+                    <td class="estado-inactivo-funcion">Inactivo</td>
+                    @else
+                    <td class="estado-activo-funcion">Activo</td>
+                    @endif
+
+
 
                     <td class="acciones-funciones">
 
@@ -55,7 +61,7 @@
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn-eliminar-empleado">
+                            <button type="submit" class="btn-eliminar-funcion">
                                 Eliminar
                             </button>
 
@@ -70,6 +76,29 @@
             </tbody>
 
         </table>
+
+    </div>
+
+    <div class="paginacion-funciones">
+
+        @if($funciones['prev_page_url'])
+        <a href="{{ route('funciones.index', ['page' => $funciones['current_page'] - 1]) }}"
+            class="btn-paginacion-funcion btn-anterior-funcion">
+            Anterior
+        </a>
+        @endif
+
+        <span class="texto-paginacion-funcion">
+            Página {{ $funciones['current_page'] }}
+            de {{ $funciones['last_page'] }}
+        </span>
+
+        @if($funciones['next_page_url'])
+        <a href="{{ route('funciones.index', ['page' => $funciones['current_page'] + 1]) }}"
+            class="btn-paginacion-funcion btn-siguiente-funcion">
+            Siguiente
+        </a>
+        @endif
 
     </div>
 

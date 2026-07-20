@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="card shadow">
+<div class="card-editar-empleado shadow">
 
-    <div class="card-header bg-primary text-white">
-        <h4 class="mb-0">Registrar Empleado</h4>
+    <div class="encabezado-de-editar">
+        <h4 class="titulo-editar-empleado mb-0">Registrar Empleado</h4>
     </div>
 
     @if ($errors->any())
@@ -30,19 +30,19 @@
 
     @endif
 
-    <div class="card-body">
+    <div class="cuerpo-editar-empleado">
 
         <form action="{{ route('empleados.store') }}" method="POST">
             @csrf
 
             <div class="mb-3">
-                <label class="form-label">Nombres</label>
+                <label class="form-label-editar">Nombres</label>
 
                 <input
                     type="text"
                     name="nombres"
                     value="{{ old('nombres') }}"
-                    class="form-control @error('nombres') is-invalid @enderror">
+                    class="input-editar-empleado @error('nombres') is-invalid @enderror">
 
                 @error('nombres')
                 <div class="invalid-feedback">
@@ -52,13 +52,13 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Apellidos</label>
+                <label class="form-label-editar">Apellidos</label>
 
                 <input
                     type="text"
                     name="apellidos"
                     value="{{ old('apellidos') }}"
-                    class="form-control @error('apellidos') is-invalid @enderror">
+                    class="input-editar-empleado @error('apellidos') is-invalid @enderror">
 
                 @error('apellidos')
                 <div class="invalid-feedback">
@@ -68,13 +68,13 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Fecha de nacimiento</label>
+                <label class="form-label-editar">Fecha de nacimiento</label>
 
                 <input
                     type="date"
                     name="fecha_nacimiento"
                     value="{{ old('fecha_nacimiento') }}"
-                    class="form-control @error('fecha_nacimiento') is-invalid @enderror">
+                    class="input-editar-empleado @error('fecha_nacimiento') is-invalid @enderror">
 
                 @error('fecha_nacimiento')
                 <div class="invalid-feedback">
@@ -84,13 +84,13 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Fecha de ingreso</label>
+                <label class="form-label-editar">Fecha de ingreso</label>
 
                 <input
                     type="date"
                     name="fecha_ingreso"
                     value="{{ old('fecha_ingreso') }}"
-                    class="form-control @error('fecha_ingreso') is-invalid @enderror">
+                    class="input-editar-empleado @error('fecha_ingreso') is-invalid @enderror">
 
                 @error('fecha_ingreso')
                 <div class="invalid-feedback">
@@ -100,13 +100,13 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Salario</label>
+                <label class="form-label-editar">Salario</label>
 
                 <input
                     type="number"
                     name="salario"
                     value="{{ old('salario') }}"
-                    class="form-control @error('salario') is-invalid @enderror">
+                    class="input-editar-empleado @error('salario') is-invalid @enderror">
 
                 @error('salario')
                 <div class="invalid-feedback">
@@ -116,11 +116,11 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Cargo</label>
+                <label class="form-label-editar">Cargo</label>
 
                 <select
                     name="id_cargo"
-                    class="form-select @error('id_cargo') is-invalid @enderror">
+                    class="input-editar-empleado @error('id_cargo') is-invalid @enderror">
 
                     <option value="">Seleccione un cargo</option>
 
@@ -146,11 +146,11 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Estado</label>
+                <label class="form-label-editar">Estado</label>
 
                 <select
                     name="estado"
-                    class="form-select @error('estado') is-invalid @enderror">
+                    class="input-editar-empleado @error('estado') is-invalid @enderror">
 
                     <option value="activo" {{ old('estado') == 'activo' ? 'selected' : '' }}>
                         Activo
@@ -169,13 +169,15 @@
                 @enderror
             </div>
 
-            <button class="btn btn-success">
-                Guardar
-            </button>
+            <div class="botones-editar-empleado">
+                <button class="btn-guardar-empleado">
+                    Guardar
+                </button>
 
-            <a href="{{ route('empleados.index') }}" class="btn btn-secondary">
-                Cancelar
-            </a>
+                <a href="{{ route('empleados.index') }}" class="btn-cancelar-empleado">
+                    Cancelar
+                </a>
+            </div>
 
         </form>
 

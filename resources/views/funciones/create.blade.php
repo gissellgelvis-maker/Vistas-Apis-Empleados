@@ -4,33 +4,33 @@
 
 @section('content')
 
-<div class="card shadow">
+<div class="card-form-funcion shadow">
 
-    <div class="card-header bg-primary text-white">
-        <h4>Nueva Función</h4>
+    <div class="encabezado-form-funcion">
+        <h4 class="titulo-form-funcion mb-0">Nueva Función</h4>
     </div>
 
-    <div class="card-body">
+    <div class="cuerpo-form-funcion">
 
         <form action="{{ route('funciones.store') }}" method="POST">
 
             @csrf
 
             <div class="mb-3">
-                <label>Descripción</label>
+                <label class="form-label-funcion">Descripción</label>
 
                 <textarea
                     name="descripcion_funcion"
-                    class="form-control"
+                    class="input-form-funcion"
                     rows="4"
                     required>{{ old('descripcion_funcion') }}</textarea>
             </div>
 
             <div class="mb-3">
 
-                <label>Cargo</label>
+                <label class="form-label-funcion">Cargo</label>
 
-                <select name="id_cargo" class="form-control" required>
+                <select name="id_cargo" class="input-form-funcion" required>
 
                     <option value="">Seleccione un cargo</option>
 
@@ -48,9 +48,9 @@
 
             <div class="mb-3">
 
-                <label>Estado</label>
+                <label class="form-label-funcion">Estado</label>
 
-                <select name="estado" class="form-control">
+                <select name="estado" class="input-form-funcion">
 
                     <option value="activo">Activo</option>
                     <option value="inactivo">Inactivo</option>
@@ -59,14 +59,16 @@
 
             </div>
 
-            <button class="btn btn-success">
-                Guardar
-            </button>
+            <div class="botones-form-funcion">
+                <button class="btn-guardar-funcion">
+                    Guardar
+                </button>
 
-            <a href="{{ route('funciones.index') }}"
-                class="btn btn-secondary">
-                Cancelar
-            </a>
+                <a href="{{ route('funciones.index') }}"
+                    class="btn-cancelar-funcion">
+                    Cancelar
+                </a>
+            </div>
 
         </form>
 

@@ -4,13 +4,13 @@
 
 @section('content')
 
-<div class="card shadow">
+<div class="card-form-cargo shadow">
 
-    <div class="card-header bg-primary text-white">
-        <h4 class="mb-0">Editar Cargo</h4>
+    <div class="encabezado-form-cargo">
+        <h4 class="titulo-form-cargo mb-0">Editar Cargo</h4>
     </div>
 
-    <div class="card-body">
+    <div class="cuerpo-form-cargo">
 
         <form action="{{ route('cargos.update', $cargo['id_cargo']) }}" method="POST">
 
@@ -18,33 +18,35 @@
             @method('PUT')
 
             <div class="mb-3">
-                <label class="form-label">Nombre del cargo</label>
+                <label class="form-label-cargo">Nombre del cargo</label>
 
                 <input
                     type="text"
                     name="nombre_cargo"
-                    class="form-control"
+                    class="input-form-cargo"
                     value="{{ old('nombre_cargo', $cargo['nombre_cargo']) }}"
                     required>
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Descripción</label>
+                <label class="form-label-cargo">Descripción</label>
 
                 <textarea
                     name="descripcion"
-                    class="form-control"
+                    class="input-form-cargo"
                     rows="4"
                     required>{{ old('descripcion', $cargo['descripcion']) }}</textarea>
             </div>
 
-            <button type="submit" class="btn btn-success">
-                Guardar
-            </button>
+            <div class="botones-form-cargo">
+                <button type="submit" class="btn-guardar-cargo">
+                    Guardar
+                </button>
 
-            <a href="{{ route('cargos.index') }}" class="btn btn-secondary">
-                Cancelar
-            </a>
+                <a href="{{ route('cargos.index') }}" class="btn-cancelar-cargo">
+                    Cancelar
+                </a>
+            </div>
 
         </form>
 

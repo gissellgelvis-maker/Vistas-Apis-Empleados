@@ -7,10 +7,278 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+/*------------------------------css de registrarse---------------------------------------------------------------------------*/
 
-/*--------------------------Tabla de lista de Empleados---------------------------------------------*/
 
-/*-------------Tabla de la lista de empleados---------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------css del login-inicio de sesion------------------------------------------------*/
+
+
+.contenedor-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f6f4;
+}
+
+.card-login{
+  background-color: #fff;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 30px 30px 12px 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado-login{
+  background-color: rgb(37, 170, 28);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.titulo-login{
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.subtitulo-login{
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-size: 14px;
+}
+
+.cuerpo-login{
+  padding: 30px 40px;
+}
+
+.form-label-login{
+  color: #246817;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-login{
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cfd8cf;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+.input-login:focus{
+  outline: none;
+  border-color: #2b8818;
+  box-shadow: 0 0 0 3px rgba(43, 136, 24, 0.15);
+}
+
+.btn-iniciar-sesion{
+  width: 100%;
+  background: #2b8818;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(13, 169, 55, 0.233);
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.btn-iniciar-sesion:hover{
+  background: #3bc020;
+}
+
+.separador-login{
+  margin: 24px 0;
+  border-color: #e5e5e5;
+}
+
+.registro-login{
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+}
+
+.link-registro-login{
+  color: #2b8818;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-registro-login:hover{
+  color: #3bc020;
+  text-decoration: underline;
+}
+
+
+
+/*--------------------------------------css navbar---------------------------------------------------------*/
+
+.navbar-rds{
+  background-color: #1a1a1a;
+  padding: 14px 0;
+}
+
+.container-navbar-rds{
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.marca-navbar-rds{
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lista-navbar-rds{
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-navbar-rds{
+  color: #d1d5d1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.link-navbar-rds:hover{
+  background-color: rgba(43, 136, 24, 0.2);
+  color: #fff;
+}
+
+.link-navbar-rds-activo{
+  background-color: #2b8818;
+  color: #fff;
+}
+
+.link-navbar-rds-activo:hover{
+  background-color: #3bc020;
+}
+
+.usuario-navbar-rds{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nombre-usuario-navbar-rds{
+  color: #fff;
+  font-weight: 500;
+}
+
+.btn-cerrar-sesion-rds{
+  background: #8a0202;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cerrar-sesion-rds:hover{
+  background: #d33f50;
+}
+
+.navbar-rds .navbar-collapse{
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+}
+
+.navbar-rds .lista-navbar-rds{
+  flex-direction: row;
+}
+
+.navbar-rds .navbar-toggler{
+  display: none;
+}
+/*---------------------------------css de bienvenida----------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------css de Tabla de lista de Empleados---------------------------------------------*/
 
 .encabezado_de_empleados_registrados{
     background-color: rgb(37, 170, 28);
@@ -63,7 +331,6 @@
 .Texto-Listado_empleado{
   color: #fff;
 }
-
 
 .btn-agregar-empleado:hover {
   background: #3bc020;
@@ -134,7 +401,7 @@ button.btn-eliminar-cargo{
   margin-top: 5px;
 }
 
-/* Cuadro del btn de eliminnar*/
+/* ----------------------------Cuadro del btn de eliminnar*/
 .caja-de-btn-editar-eliminar{
   margin-top: 10px;
 }
@@ -153,7 +420,7 @@ button.btn-eliminar-cargo{
 
 
 
-/*-----------estado-Colores-activo-inactivo----------*/
+/*----------------------------estado-Colores-activo-inactivo----------*/
 
 td.estado-activo{
   background-color: green;
@@ -225,10 +492,9 @@ td.estado-inactivo{
 
 /*-------------------------------------------Formulario de editar un empleado-------------------------------------------------------*/
 
-/*formilario de editar un empleado*/
 
 .encabezado-de-editar{
-    background-color: rgb(37, 170, 28); /* mismo verde que Empleados/Cargos/Funciones */
+    background-color: rgb(37, 170, 28);
     width: 1000px;
     height: 60px;
     border-radius: 30px 30px 0 0;
@@ -319,7 +585,7 @@ td.estado-inactivo{
 }
 
 
-/*--------------------css cargos-----------------------------*/
+/*-------------------------------------------------------------------css cargos-----------------------------*/
 
 
 .Cuadro_de_fondo_dela_tabla_cargos{
@@ -433,7 +699,7 @@ td.estado-inactivo{
   margin-top: 10px;
 }
 
-/* paginacion cargo-css*/
+/* ---------------------paginacion cargo-css----------------------------*/
 
 .paginacion-cargos{
   display: flex;
@@ -481,7 +747,7 @@ td.estado-inactivo{
   font-size: 14px;
 }
 
-/* ---------------------css-formulario de crear un nuevo cargo---------------- */
+/* ---------------------------------------css-formulario de crear un nuevo cargo--------------------------------------- */
 .card-form-cargo{
   background-color: #fff;
   width: 1000px;

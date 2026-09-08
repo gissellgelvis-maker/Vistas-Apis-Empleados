@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+<nav class="navbar-rds">
+    <div class="container-navbar-rds">
 
-        <a class="navbar-brand" href="{{ route('dashboard') }}">
+        <a class="marca-navbar-rds" href="{{ route('dashboard') }}">
             Proyecto RDS
         </a>
 
@@ -12,28 +12,32 @@
 
         <div class="navbar-collapse" id="navbarNav">
 
-            <ul class="navbar-nav me-auto">
+            <ul class="lista-navbar-rds">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">
+                <li>
+                    <a class="link-navbar-rds {{ request()->routeIs('dashboard') ? 'link-navbar-rds-activo' : '' }}"
+                        href="{{ route('dashboard') }}">
                         Inicio
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('empleados.index') }}">
+                <li>
+                    <a class="link-navbar-rds {{ request()->routeIs('empleados.*') ? 'link-navbar-rds-activo' : '' }}"
+                        href="{{ route('empleados.index') }}">
                         Empleados
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cargos.index') }}">
+                <li>
+                    <a class="link-navbar-rds {{ request()->routeIs('cargos.*') ? 'link-navbar-rds-activo' : '' }}"
+                        href="{{ route('cargos.index') }}">
                         Cargos
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('funciones.index') }}">
+                <li>
+                    <a class="link-navbar-rds {{ request()->routeIs('funciones.*') ? 'link-navbar-rds-activo' : '' }}"
+                        href="{{ route('funciones.index') }}">
                         Funciones
                     </a>
                 </li>
@@ -42,19 +46,23 @@
 
             @if(session()->has('user'))
 
-                <span class="navbar-text text-white me-3">
-                    {{ session('user.name') }}
-                </span>
+                <div class="usuario-navbar-rds">
 
-                <form action="{{ route('logout') }}" method="POST">
+                    <span class="nombre-usuario-navbar-rds">
+                        {{ session('user.name') }}
+                    </span>
 
-                    @csrf
+                    <form action="{{ route('logout') }}" method="POST">
 
-                    <button type="submit" class="btn btn-danger btn-sm">
-                        Cerrar sesión
-                    </button>
+                        @csrf
 
-                </form>
+                        <button type="submit" class="btn-cerrar-sesion-rds">
+                            Cerrar sesión
+                        </button>
+
+                    </form>
+
+                </div>
 
             @endif
 
